@@ -76,6 +76,8 @@ img {
 
 .header {
   border-bottom: 1px solid var(--accent-color);
+  box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -194,6 +196,9 @@ img {
       rgba(46, 47, 66, 0.7)
     ),
     url(../images/hero/hero-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   padding-top: 188px;
   padding-bottom: 188px;
@@ -334,7 +339,7 @@ img {
 }
 
 .team-description {
-  padding: 32px 16px;
+  padding: 32px 0;
 }
 
 .team-name {
@@ -360,6 +365,7 @@ img {
 
 .social-list {
   display: flex;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -442,8 +448,11 @@ img {
 
 .footer-container {
   display: flex;
-  gap: 120px;
   align-items: baseline;
+}
+
+.footer-about {
+  margin-right: 120px;
 }
 
 .footer-logo {
@@ -468,10 +477,13 @@ img {
 
   color: var(--white-color);
 }
+.footer-social .social-list {
+  gap: 16px;
+}
 
-.footer-social-link.social-link:hover,
-.footer-social-link.social-link:focus,
-.footer-social-link.social-link:active {
+.footer-social .social-link:hover,
+.footer-social .social-link:focus,
+.footer-social .social-link:active {
   background-color: var(--success-color);
 }
 
@@ -495,17 +507,22 @@ img {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 408px;
-  height: 584px;
+  min-height: 584px;
   border-radius: 4px;
   background-color: var(--light-background-color);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform var(--duration) var(--timing-function);
 }
 
 .close-button {
@@ -524,11 +541,10 @@ img {
   cursor: pointer;
 
   background-color: var(--accent-color);
-  color: var(--dark-color-main);
 
   transition: color var(--duration) var(--timing-function),
     background-color var(--duration) var(--timing-function),
-    border-color var(--duration) var(--timing-function);
+    border var(--duration) var(--timing-function);
 }
 
 .close-button:hover,
@@ -536,11 +552,18 @@ img {
 .close-button:active {
   color: var(--white-color);
   background-color: var(--pressed-color);
-  border-color: transparent;
+  border: none;
 }
 
 .close-button-icon {
-  fill: currentColor;
+  fill: var(--dark-color-main);
+  transition: fill var(--duration) var(--timing-function);
+}
+
+.close-button:hover .close-button-icon,
+.close-button:focus .close-button-icon,
+.close-button:active .close-button-icon {
+  fill: var(--white-color);
 }
 
 /* ===============================PORTFOLIO PAGE=============================== */
