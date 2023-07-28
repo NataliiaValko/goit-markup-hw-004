@@ -542,15 +542,13 @@ img {
 
   background-color: var(--accent-color);
 
-  transition: color var(--duration) var(--timing-function),
-    background-color var(--duration) var(--timing-function),
+  transition: background-color var(--duration) var(--timing-function),
     border var(--duration) var(--timing-function);
 }
 
 .close-button:hover,
 .close-button:focus,
 .close-button:active {
-  color: var(--white-color);
   background-color: var(--pressed-color);
   border: none;
 }
